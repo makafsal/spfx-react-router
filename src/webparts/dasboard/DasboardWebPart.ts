@@ -8,8 +8,8 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'DasboardWebPartStrings';
-import Dasboard from './components/Dasboard';
-import { IDasboardProps } from './components/IDasboardProps';
+import App from './App';
+import { IProps } from './App';
 
 export interface IDasboardWebPartProps {
   description: string;
@@ -18,11 +18,8 @@ export interface IDasboardWebPartProps {
 export default class DasboardWebPart extends BaseClientSideWebPart<IDasboardWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IDasboardProps> = React.createElement(
-      Dasboard,
-      {
-        description: this.properties.description
-      }
+    const element: React.ReactElement<IProps> = React.createElement(
+      App, {}
     );
 
     ReactDom.render(element, this.domElement);
